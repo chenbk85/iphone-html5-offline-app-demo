@@ -15,7 +15,7 @@ Apple calls these "Web Clips" (online) or "Offline Applications" (offline).
 
 You can use any web server. I'm not doing anything special with `node` here.
 
-You just have to make sure that `main.manifest` loads with the mime-type `text/cach-manifest`
+You just have to make sure that `main.appcache` loads with the mime-type `text/cach-manifest`
 
     npm install spark
     spark
@@ -56,7 +56,7 @@ From the document root
         index.html
 
         // this is a tricky beast that maks the magic happen
-        main.manifest
+        main.appcache
 
 
         // iOS 4.2 allows for various sizes and looks for these files in this order
@@ -96,7 +96,7 @@ Note: It might be useful to store all assets which will be available offline in 
 
 Cache Manifest
 ----
-call this `main.manifest`. DO NOT call it `cache.manifest` (works in Chrome, not on iPhone)
+call this `main.appcache`. DO NOT call it `cache.manifest` (works in Chrome, not on iPhone)
 
     CACHE MANIFEST
     # That must be the very first line
@@ -174,7 +174,7 @@ Notes
 
 **Heachache Alert**: `Cannot Open MyApp MyApp could not be opened because it could not connect to the server.`
 
-With one mistake of the `main.manifest` you may end up in an error loop that you can't get out of without clearing the cache and renaming the app.
+With one mistake of the `main.appcache` you may end up in an error loop that you can't get out of without clearing the cache and renaming the app.
 
 Solution:
 
@@ -185,12 +185,12 @@ Solution:
 How to avoid:
 
   * Test on Chrome until your app works, then on test your iPod / iPhone / iPad.
-  * Particularly, always test your `main.manifest` in Chrome first. 
+  * Particularly, always test your `main.appcach` in Chrome first. 
 
 **Other Notes**:
 
   * Develop on **Chrome first** - which has useful error messages - then test on Mobile Safari
-  * The cache manifest may not be named `cache.manifest`. `main.manifest` works fine.
+  * The cache manifest may not be named `cache.manifest`. `main.appcache` works fine.
   * If there is an error in your cache manifest, your app will not update
     * you delete a file that was listed
     * you list a new file that doesn't exist
